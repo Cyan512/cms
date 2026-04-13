@@ -14,7 +14,7 @@
     "image": {
       "type": "component",
       "component": "shared.img",
-      "repeatable": true
+      "repeatable": false
     },
     "description": {
       "type": "text"

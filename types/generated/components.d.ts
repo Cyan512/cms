@@ -7,7 +7,7 @@ export interface HomeHomeHero extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Component<'shared.img', true>;
+    image: Schema.Attribute.Component<'shared.img', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.Text;
   };
