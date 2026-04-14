@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_home_testimonials",
+  "info": {
+    "displayName": "home-testimonials"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "component",
+      "component": "shared.header",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

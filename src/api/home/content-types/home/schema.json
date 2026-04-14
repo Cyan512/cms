@@ -23,7 +23,13 @@
         }
       },
       "components": [
-        "home.home-hero"
+        "home.home-hero",
+        "home.home-testimonials",
+        "home.home-services",
+        "home.home-philosophy",
+        "home.home-gastronomy",
+        "home.home-featured-rooms",
+        "shared.section-cta"
       ]
     }
   }

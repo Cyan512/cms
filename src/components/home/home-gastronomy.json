@@ -1,18 +1,18 @@
 {
-  "collectionName": "components_home_home_heroes",
+  "collectionName": "components_home_home_gastronomies",
   "info": {
-    "displayName": "home-hero"
+    "displayName": "home-gastronomy"
   },
   "options": {},
   "attributes": {
-    "image": {
-      "type": "component",
-      "component": "shared.img",
-      "repeatable": false
-    },
     "header": {
       "type": "component",
       "component": "shared.header",
+      "repeatable": false
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.img",
       "repeatable": false
     }
   },

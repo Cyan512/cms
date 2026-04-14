@@ -446,7 +446,17 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['home.home-hero']> &
+    content: Schema.Attribute.DynamicZone<
+      [
+        'home.home-hero',
+        'home.home-testimonials',
+        'home.home-services',
+        'home.home-philosophy',
+        'home.home-gastronomy',
+        'home.home-featured-rooms',
+        'shared.section-cta',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

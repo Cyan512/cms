@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_home_featured_rooms",
+  "info": {
+    "displayName": "home-featured-rooms"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "component",
+      "component": "shared.header",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

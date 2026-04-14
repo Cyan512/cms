@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_home_services",
+  "info": {
+    "displayName": "home-services"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "component",
+      "component": "shared.header",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
