@@ -13,6 +13,16 @@ export interface HomeHomeHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHero extends Struct.ComponentSchema {
+  collectionName: 'components_shared_heroes';
+  info: {
+    displayName: 'hero';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedImg extends Struct.ComponentSchema {
   collectionName: 'components_shared_imgs';
   info: {
@@ -28,6 +38,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'home.home-hero': HomeHomeHero;
+      'shared.hero': SharedHero;
       'shared.img': SharedImg;
     }
   }
