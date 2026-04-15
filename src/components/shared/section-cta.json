@@ -9,6 +9,11 @@
       "type": "component",
       "component": "shared.header",
       "repeatable": false
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
     }
   },
   "config": {}

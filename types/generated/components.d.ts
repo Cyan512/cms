@@ -8,6 +8,7 @@ export interface HomeHomeAbout extends Struct.ComponentSchema {
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
     image: Schema.Attribute.Component<'shared.img', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
@@ -19,6 +20,14 @@ export interface HomeHomeHero extends Struct.ComponentSchema {
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
     image: Schema.Attribute.Component<'shared.img', false>;
+    links: Schema.Attribute.Component<'shared.link', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+          min: 0;
+        },
+        number
+      >;
   };
 }
 
@@ -29,6 +38,7 @@ export interface HomeHomeRooms extends Struct.ComponentSchema {
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
@@ -39,6 +49,7 @@ export interface HomeHomeServices extends Struct.ComponentSchema {
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
@@ -49,6 +60,7 @@ export interface HomeHomeTestimonials extends Struct.ComponentSchema {
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
     testimonials: Schema.Attribute.Relation<
       'oneToMany',
       'api::testimonial.testimonial'
@@ -90,6 +102,17 @@ export interface SharedImg extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSectionCta extends Struct.ComponentSchema {
   collectionName: 'components_shared_section_ctas';
   info: {
@@ -97,6 +120,7 @@ export interface SharedSectionCta extends Struct.ComponentSchema {
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
@@ -111,6 +135,7 @@ declare module '@strapi/strapi' {
       'shared.header': SharedHeader;
       'shared.hero': SharedHero;
       'shared.img': SharedImg;
+      'shared.link': SharedLink;
       'shared.section-cta': SharedSectionCta;
     }
   }

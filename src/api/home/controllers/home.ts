@@ -18,7 +18,8 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                links: true
                             }
                         },
                         'home.home-about': {
@@ -28,17 +29,20 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                link:true
                             }
                         },
                         'home.home-rooms': {
                             populate: {
-                                header: true
+                                header: true,
+                                link:true
                             }
                         },
                         'home.home-services': {
                             populate: {
-                                header: true
+                                header: true,
+                                link:true
                             }
                         },
                         'home.home-testimonials': {
@@ -46,12 +50,14 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                                 header: true,
                                 testimonials: {
                                     populate: true
-                                }
+                                },
+                                link:true
                             }
                         },
                         'shared.section-cta': {
                             populate: {
-                                header: true
+                                header: true,
+                                link:true
                             }
                         }
                     }
