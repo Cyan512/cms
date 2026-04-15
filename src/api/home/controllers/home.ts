@@ -45,6 +45,11 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                             populate: {
                                 header: true
                             }
+                        },
+                        'shared.section-cta': {
+                            populate: {
+                                header: true
+                            }
                         }
                     }
                 }
