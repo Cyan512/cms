@@ -49,6 +49,10 @@ export interface HomeHomeTestimonials extends Struct.ComponentSchema {
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
   };
 }
 

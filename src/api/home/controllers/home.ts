@@ -43,7 +43,10 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                         },
                         'home.home-testimonials': {
                             populate: {
-                                header: true
+                                header: true,
+                                testimonials: {
+                                    populate: true
+                                }
                             }
                         },
                         'shared.section-cta': {

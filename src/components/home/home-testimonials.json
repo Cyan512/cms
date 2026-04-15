@@ -9,6 +9,11 @@
       "type": "component",
       "component": "shared.header",
       "repeatable": false
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
     }
   },
   "config": {}
