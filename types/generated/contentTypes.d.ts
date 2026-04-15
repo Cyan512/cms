@@ -448,13 +448,12 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'home.home-hero',
+        'shared.section-cta',
         'home.home-testimonials',
         'home.home-services',
-        'home.home-philosophy',
-        'home.home-gastronomy',
-        'home.home-featured-rooms',
-        'shared.section-cta',
+        'home.home-rooms',
+        'home.home-hero',
+        'home.home-about',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

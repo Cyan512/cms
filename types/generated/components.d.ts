@@ -1,19 +1,9 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface HomeHomeFeaturedRooms extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_featured_rooms';
+export interface HomeHomeAbout extends Struct.ComponentSchema {
+  collectionName: 'components_home_home_abouts';
   info: {
-    displayName: 'home-featured-rooms';
-  };
-  attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
-  };
-}
-
-export interface HomeHomeGastronomy extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_gastronomies';
-  info: {
-    displayName: 'home-gastronomy';
+    displayName: 'home-about';
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
@@ -32,14 +22,13 @@ export interface HomeHomeHero extends Struct.ComponentSchema {
   };
 }
 
-export interface HomeHomePhilosophy extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_philosophies';
+export interface HomeHomeRooms extends Struct.ComponentSchema {
+  collectionName: 'components_home_home_rooms';
   info: {
-    displayName: 'home-philosophy';
+    displayName: 'home-rooms';
   };
   attributes: {
     header: Schema.Attribute.Component<'shared.header', false>;
-    image: Schema.Attribute.Component<'shared.img', false>;
   };
 }
 
@@ -110,10 +99,9 @@ export interface SharedSectionCta extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'home.home-featured-rooms': HomeHomeFeaturedRooms;
-      'home.home-gastronomy': HomeHomeGastronomy;
+      'home.home-about': HomeHomeAbout;
       'home.home-hero': HomeHomeHero;
-      'home.home-philosophy': HomeHomePhilosophy;
+      'home.home-rooms': HomeHomeRooms;
       'home.home-services': HomeHomeServices;
       'home.home-testimonials': HomeHomeTestimonials;
       'shared.header': SharedHeader;

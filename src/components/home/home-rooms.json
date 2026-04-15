@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_home_home_featured_rooms",
+  "collectionName": "components_home_home_rooms",
   "info": {
-    "displayName": "home-featured-rooms"
+    "displayName": "home-rooms"
   },
   "options": {},
   "attributes": {
