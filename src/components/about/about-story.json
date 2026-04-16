@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_about_about_stories",
+  "info": {
+    "displayName": "about-story"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "component",
+      "component": "shared.header",
+      "repeatable": false
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.img",
+      "repeatable": false
+    },
+    "stats": {
+      "type": "component",
+      "component": "shared.stats",
+      "repeatable": true,
+      "min": 0,
+      "max": 4
+    },
+    "values": {
+      "type": "component",
+      "component": "shared.stats",
+      "repeatable": true,
+      "min": 0,
+      "max": 3
+    }
+  },
+  "config": {}
+}

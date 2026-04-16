@@ -1,5 +1,32 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutAboutStory extends Struct.ComponentSchema {
+  collectionName: 'components_about_about_stories';
+  info: {
+    displayName: 'about-story';
+  };
+  attributes: {
+    header: Schema.Attribute.Component<'shared.header', false>;
+    image: Schema.Attribute.Component<'shared.img', false>;
+    stats: Schema.Attribute.Component<'shared.stats', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 0;
+        },
+        number
+      >;
+    values: Schema.Attribute.Component<'shared.stats', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
 export interface HomeHomeAbout extends Struct.ComponentSchema {
   collectionName: 'components_home_home_abouts';
   info: {
@@ -76,18 +103,7 @@ export interface SharedHeader extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedHero extends Struct.ComponentSchema {
-  collectionName: 'components_shared_heroes';
-  info: {
-    displayName: 'hero';
-  };
-  attributes: {
-    image: Schema.Attribute.Component<'shared.img', false>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -124,19 +140,44 @@ export interface SharedSectionCta extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSectionHero extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_heroes';
+  info: {
+    displayName: 'section-hero';
+  };
+  attributes: {
+    header: Schema.Attribute.Component<'shared.header', false>;
+    image: Schema.Attribute.Component<'shared.img', false>;
+  };
+}
+
+export interface SharedStats extends Struct.ComponentSchema {
+  collectionName: 'components_shared_stats';
+  info: {
+    displayName: 'stats';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    more: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    value: Schema.Attribute.Text;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about.about-story': AboutAboutStory;
       'home.home-about': HomeHomeAbout;
       'home.home-hero': HomeHomeHero;
       'home.home-rooms': HomeHomeRooms;
       'home.home-services': HomeHomeServices;
       'home.home-testimonials': HomeHomeTestimonials;
       'shared.header': SharedHeader;
-      'shared.hero': SharedHero;
       'shared.img': SharedImg;
       'shared.link': SharedLink;
       'shared.section-cta': SharedSectionCta;
+      'shared.section-hero': SharedSectionHero;
+      'shared.stats': SharedStats;
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_section_heroes",
+  "info": {
+    "displayName": "section-hero"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "component",
+      "component": "shared.header",
+      "repeatable": false
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.img",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
