@@ -18,8 +18,11 @@ COPY . .
 # Build del admin de Strapi
 RUN npm run build
 
-# 🔥 IMPORTANTE: no fijar puerto aquí
+# Entorno producción
 ENV NODE_ENV=production
+
+# 🔥 ESTO FALTABA
+EXPOSE 1337
 
 # Ejecutar Strapi
 CMD ["npm", "run", "start"]
