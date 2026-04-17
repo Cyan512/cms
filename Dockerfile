@@ -1,30 +1,25 @@
 FROM node:20-alpine
 
-# Set working directory
+# Directorio de trabajo
 WORKDIR /app
 
-# Install build dependencies for native modules
+# Dependencias necesarias para módulos nativos
 RUN apk add --no-cache python3 make g++
 
-# Copy package files
+# Copiar package.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --only=production
+# Instalar dependencias (solo producción)
+RUN npm install --omit=dev
 
-# Copy application code
+# Copiar el resto del proyecto
 COPY . .
 
-# Build the admin panel
+# Build del admin de Strapi
 RUN npm run build
 
-# Expose port
-EXPOSE 1337
-
-# Set environment variables
+# 🔥 IMPORTANTE: no fijar puerto aquí
 ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV PORT=1337
 
-# Start the application
+# Ejecutar Strapi
 CMD ["npm", "run", "start"]
