@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_about_about_locations",
+  "info": {
+    "displayName": "about-location"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "address": {
+      "type": "text"
+    },
+    "googleMapsUrl": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

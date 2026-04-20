@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_gallery_gallery_grids",
+  "info": {
+    "displayName": "gallery-grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "images": {
+      "type": "component",
+      "component": "shared.gallery-image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

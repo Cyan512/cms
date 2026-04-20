@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_contact_contact_infos",
+  "info": {
+    "displayName": "contact-info"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "openingHours": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

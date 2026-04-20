@@ -19,6 +19,20 @@ export default factories.createCoreController('api::about-page.about-page', ({ s
                                     }
                                 }
                             }
+                        },
+                        'about.about-history': true,
+                        'about.about-philosophy': {
+                            populate: {
+                                values: {
+                                    populate: true
+                                }
+                            }
+                        },
+                        'about.about-location': true,
+                        'shared.section-cta': {
+                            populate: {
+                                link: true
+                            }
                         }
                     }
                 }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_gallery_images",
+  "info": {
+    "displayName": "gallery-image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "component",
+      "component": "shared.img",
+      "repeatable": false
+    },
+    "category": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -23,7 +23,10 @@
         }
       },
       "components": [
-        "shared.section-hero"
+        "shared.section-hero",
+        "contact.contact-info",
+        "contact.contact-map",
+        "contact.contact-form"
       ]
     }
   }

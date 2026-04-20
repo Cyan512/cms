@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_gallery_categories",
+  "info": {
+    "displayName": "gallery-category"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

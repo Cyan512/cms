@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_about_about_philosophies",
+  "info": {
+    "displayName": "about-philosophy"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "values": {
+      "type": "component",
+      "component": "shared.value",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

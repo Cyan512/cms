@@ -19,6 +19,29 @@ export default factories.createCoreController('api::gallery-page.gallery-page', 
                                     }
                                 }
                             }
+                        },
+                        'gallery.gallery-filters': {
+                            populate: {
+                                categories: true,
+                            }
+                        },
+                        'gallery.gallery-grid': {
+                            populate: {
+                                images: {
+                                    populate: {
+                                        image: {
+                                            populate: {
+                                                src: true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        'shared.section-cta': {
+                            populate: {
+                                link: true
+                            }
                         }
                     }
                 }

@@ -1,28 +1,102 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface AboutAboutStory extends Struct.ComponentSchema {
-  collectionName: 'components_about_about_stories';
+export interface AboutAboutHistory extends Struct.ComponentSchema {
+  collectionName: 'components_about_about_histories';
   info: {
-    displayName: 'about-story';
+    displayName: 'about-history';
   };
   attributes: {
-    image: Schema.Attribute.Component<'shared.img', false>;
-    stats: Schema.Attribute.Component<'shared.stats', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 4;
-          min: 0;
-        },
-        number
-      >;
-    values: Schema.Attribute.Component<'shared.stats', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 0;
-        },
-        number
-      >;
+    description: Schema.Attribute.Text;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    year: Schema.Attribute.String;
+  };
+}
+
+export interface AboutAboutLocation extends Struct.ComponentSchema {
+  collectionName: 'components_about_about_locations';
+  info: {
+    displayName: 'about-location';
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    googleMapsUrl: Schema.Attribute.Text;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutAboutPhilosophy extends Struct.ComponentSchema {
+  collectionName: 'components_about_about_philosophies';
+  info: {
+    displayName: 'about-philosophy';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    values: Schema.Attribute.Component<'shared.value', true>;
+  };
+}
+
+export interface ContactContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_contact_contact_forms';
+  info: {
+    displayName: 'contact-form';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_contact_contact_infos';
+  info: {
+    displayName: 'contact-info';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    openingHours: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactContactMap extends Struct.ComponentSchema {
+  collectionName: 'components_contact_contact_maps';
+  info: {
+    displayName: 'contact-map';
+  };
+  attributes: {
+    embedUrl: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GalleryGalleryFilters extends Struct.ComponentSchema {
+  collectionName: 'components_gallery_gallery_filters';
+  info: {
+    displayName: 'gallery-filters';
+  };
+  attributes: {
+    categories: Schema.Attribute.Component<'shared.gallery-category', true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GalleryGalleryGrid extends Struct.ComponentSchema {
+  collectionName: 'components_gallery_gallery_grids';
+  info: {
+    displayName: 'gallery-grid';
+  };
+  attributes: {
+    images: Schema.Attribute.Component<'shared.gallery-image', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -102,6 +176,28 @@ export interface HomeHomeTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedGalleryCategory extends Struct.ComponentSchema {
+  collectionName: 'components_shared_gallery_categories';
+  info: {
+    displayName: 'gallery-category';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface SharedGalleryImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_gallery_images';
+  info: {
+    displayName: 'gallery-image';
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    image: Schema.Attribute.Component<'shared.img', false>;
+  };
+}
+
 export interface SharedImg extends Struct.ComponentSchema {
   collectionName: 'components_shared_imgs';
   info: {
@@ -159,32 +255,40 @@ export interface SharedSectionHero extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedStats extends Struct.ComponentSchema {
-  collectionName: 'components_shared_stats';
+export interface SharedValue extends Struct.ComponentSchema {
+  collectionName: 'components_shared_values';
   info: {
-    displayName: 'stats';
+    displayName: 'value';
   };
   attributes: {
-    label: Schema.Attribute.String;
-    more: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    value: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'about.about-story': AboutAboutStory;
+      'about.about-history': AboutAboutHistory;
+      'about.about-location': AboutAboutLocation;
+      'about.about-philosophy': AboutAboutPhilosophy;
+      'contact.contact-form': ContactContactForm;
+      'contact.contact-info': ContactContactInfo;
+      'contact.contact-map': ContactContactMap;
+      'gallery.gallery-filters': GalleryGalleryFilters;
+      'gallery.gallery-grid': GalleryGalleryGrid;
       'home.home-about': HomeHomeAbout;
       'home.home-hero': HomeHomeHero;
       'home.home-rooms': HomeHomeRooms;
       'home.home-services': HomeHomeServices;
       'home.home-testimonials': HomeHomeTestimonials;
+      'shared.gallery-category': SharedGalleryCategory;
+      'shared.gallery-image': SharedGalleryImage;
       'shared.img': SharedImg;
       'shared.link': SharedLink;
       'shared.section-cta': SharedSectionCta;
       'shared.section-hero': SharedSectionHero;
-      'shared.stats': SharedStats;
+      'shared.value': SharedValue;
     }
   }
 }

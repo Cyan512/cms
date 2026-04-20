@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contact_contact_maps",
+  "info": {
+    "displayName": "contact-map"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "embedUrl": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

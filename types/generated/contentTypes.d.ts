@@ -446,7 +446,15 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+    content: Schema.Attribute.DynamicZone<
+      [
+        'shared.section-hero',
+        'about.about-history',
+        'about.about-philosophy',
+        'about.about-location',
+        'shared.section-cta',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -483,7 +491,14 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+    content: Schema.Attribute.DynamicZone<
+      [
+        'shared.section-hero',
+        'contact.contact-info',
+        'contact.contact-map',
+        'contact.contact-form',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -520,7 +535,14 @@ export interface ApiGalleryPageGalleryPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+    content: Schema.Attribute.DynamicZone<
+      [
+        'shared.section-hero',
+        'shared.section-cta',
+        'gallery.gallery-filters',
+        'gallery.gallery-grid',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

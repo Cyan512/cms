@@ -14,7 +14,7 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
                         'home.home-hero': {
                             populate: {
                                 image: {
-                                    populate: {
+                                    populate:   {
                                         src: true
                                     }
                                 },

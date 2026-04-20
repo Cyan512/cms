@@ -19,7 +19,10 @@ export default factories.createCoreController('api::contact-page.contact-page', 
                                     }
                                 }
                             }
-                        }
+                        },
+                        'contact.contact-info': true,
+                        'contact.contact-form': true,
+                        'contact.contact-map': true,
                     }
                 }
             }
