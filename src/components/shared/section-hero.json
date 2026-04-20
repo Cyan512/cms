@@ -5,10 +5,12 @@
   },
   "options": {},
   "attributes": {
-    "header": {
-      "type": "component",
-      "component": "shared.header",
-      "repeatable": false
+    "title": {
+      "type": "text",
+      "required": false
+    },
+    "subtitle": {
+      "type": "text"
     },
     "image": {
       "type": "component",

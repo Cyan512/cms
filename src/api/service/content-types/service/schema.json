@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "services",
   "info": {
     "singularName": "service",
     "pluralName": "services",
-    "displayName": "Service"
+    "displayName": "service"
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +15,40 @@
     }
   },
   "attributes": {
-    "content": {
-      "type": "dynamiczone",
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "components": [
-        "shared.section-hero"
-      ]
+      "targetField": "title"
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "images": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.img",
+      "repeatable": true
     }
   }
 }

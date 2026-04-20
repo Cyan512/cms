@@ -6,7 +6,6 @@ export interface AboutAboutStory extends Struct.ComponentSchema {
     displayName: 'about-story';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
     image: Schema.Attribute.Component<'shared.img', false>;
     stats: Schema.Attribute.Component<'shared.stats', true> &
       Schema.Attribute.SetMinMax<
@@ -33,9 +32,11 @@ export interface HomeHomeAbout extends Struct.ComponentSchema {
     displayName: 'home-about';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Component<'shared.img', false>;
     link: Schema.Attribute.Component<'shared.link', false>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -45,7 +46,7 @@ export interface HomeHomeHero extends Struct.ComponentSchema {
     displayName: 'home-hero';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Component<'shared.img', false>;
     links: Schema.Attribute.Component<'shared.link', true> &
       Schema.Attribute.SetMinMax<
@@ -55,6 +56,8 @@ export interface HomeHomeHero extends Struct.ComponentSchema {
         },
         number
       >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -64,8 +67,9 @@ export interface HomeHomeRooms extends Struct.ComponentSchema {
     displayName: 'home-rooms';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
     link: Schema.Attribute.Component<'shared.link', false>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -75,8 +79,10 @@ export interface HomeHomeServices extends Struct.ComponentSchema {
     displayName: 'home-services';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
     link: Schema.Attribute.Component<'shared.link', false>;
+    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -86,23 +92,12 @@ export interface HomeHomeTestimonials extends Struct.ComponentSchema {
     displayName: 'home-testimonials';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
     link: Schema.Attribute.Component<'shared.link', false>;
+    subtitle: Schema.Attribute.Text;
     testimonials: Schema.Attribute.Relation<
       'oneToMany',
       'api::testimonial.testimonial'
     >;
-  };
-}
-
-export interface SharedHeader extends Struct.ComponentSchema {
-  collectionName: 'components_shared_headers';
-  info: {
-    displayName: 'header';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.Text;
   };
 }
@@ -113,8 +108,8 @@ export interface SharedImg extends Struct.ComponentSchema {
     displayName: 'img';
   };
   attributes: {
-    alt: Schema.Attribute.String;
-    src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    alt: Schema.Attribute.Text;
+    src: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -124,8 +119,11 @@ export interface SharedLink extends Struct.ComponentSchema {
     displayName: 'link';
   };
   attributes: {
-    label: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['primary', 'secondary', 'link']> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    url: Schema.Attribute.Text;
   };
 }
 
@@ -135,8 +133,17 @@ export interface SharedSectionCta extends Struct.ComponentSchema {
     displayName: 'section-cta';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
-    link: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    link: Schema.Attribute.Component<'shared.link', false> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+          min: 0;
+        },
+        number
+      >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -146,8 +153,9 @@ export interface SharedSectionHero extends Struct.ComponentSchema {
     displayName: 'section-hero';
   };
   attributes: {
-    header: Schema.Attribute.Component<'shared.header', false>;
     image: Schema.Attribute.Component<'shared.img', false>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -172,7 +180,6 @@ declare module '@strapi/strapi' {
       'home.home-rooms': HomeHomeRooms;
       'home.home-services': HomeHomeServices;
       'home.home-testimonials': HomeHomeTestimonials;
-      'shared.header': SharedHeader;
       'shared.img': SharedImg;
       'shared.link': SharedLink;
       'shared.section-cta': SharedSectionCta;

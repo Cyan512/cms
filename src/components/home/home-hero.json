@@ -5,14 +5,18 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
     "image": {
       "type": "component",
       "component": "shared.img",
-      "repeatable": false
-    },
-    "header": {
-      "type": "component",
-      "component": "shared.header",
       "repeatable": false
     },
     "links": {

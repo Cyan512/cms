@@ -5,11 +5,24 @@
   },
   "options": {},
   "attributes": {
-    "url": {
+    "text": {
       "type": "string"
     },
-    "label": {
-      "type": "string"
+    "url": {
+      "type": "text"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "type": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": [
+        "primary",
+        "secondary",
+        "link"
+      ]
     }
   },
   "config": {}

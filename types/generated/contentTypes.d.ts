@@ -430,48 +430,12 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutAbout extends Struct.SingleTypeSchema {
-  collectionName: 'abouts';
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_pages';
   info: {
-    displayName: 'About';
-    pluralName: 'abouts';
-    singularName: 'about';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    content: Schema.Attribute.DynamicZone<
-      ['shared.section-hero', 'shared.section-cta', 'about.about-story']
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiContactContact extends Struct.SingleTypeSchema {
-  collectionName: 'contacts';
-  info: {
-    displayName: 'Contact';
-    pluralName: 'contacts';
-    singularName: 'contact';
+    displayName: 'about-page';
+    pluralName: 'about-pages';
+    singularName: 'about-page';
   };
   options: {
     draftAndPublish: true;
@@ -494,7 +458,7 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::contact.contact'
+      'api::about-page.about-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -503,12 +467,12 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiGalleryGallery extends Struct.SingleTypeSchema {
-  collectionName: 'galleries';
+export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
+  collectionName: 'contact_pages';
   info: {
-    displayName: 'Gallery';
-    pluralName: 'galleries';
-    singularName: 'gallery';
+    displayName: 'contact-page';
+    pluralName: 'contact-pages';
+    singularName: 'contact-page';
   };
   options: {
     draftAndPublish: true;
@@ -531,7 +495,7 @@ export interface ApiGalleryGallery extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::gallery.gallery'
+      'api::contact-page.contact-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -540,12 +504,49 @@ export interface ApiGalleryGallery extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiHomeHome extends Struct.SingleTypeSchema {
-  collectionName: 'homes';
+export interface ApiGalleryPageGalleryPage extends Struct.SingleTypeSchema {
+  collectionName: 'gallery_pages';
   info: {
-    displayName: 'Home';
-    pluralName: 'homes';
-    singularName: 'home';
+    displayName: 'gallery-page';
+    pluralName: 'gallery-pages';
+    singularName: 'gallery-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery-page.gallery-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    displayName: 'home-page';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
   };
   options: {
     draftAndPublish: true;
@@ -558,12 +559,12 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'shared.section-cta',
-        'home.home-testimonials',
-        'home.home-services',
-        'home.home-rooms',
         'home.home-hero',
         'home.home-about',
+        'home.home-rooms',
+        'home.home-services',
+        'home.home-testimonials',
+        'shared.section-cta',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -575,7 +576,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -583,10 +587,47 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiRoomRoom extends Struct.SingleTypeSchema {
+export interface ApiRoomPageRoomPage extends Struct.SingleTypeSchema {
+  collectionName: 'room_pages';
+  info: {
+    displayName: 'room-page';
+    pluralName: 'room-pages';
+    singularName: 'room-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::room-page.room-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
   collectionName: 'rooms';
   info: {
-    displayName: 'Room';
+    displayName: 'room';
     pluralName: 'rooms';
     singularName: 'room';
   };
@@ -599,30 +640,44 @@ export interface ApiRoomRoom extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::room.room'>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiServiceService extends Struct.SingleTypeSchema {
-  collectionName: 'services';
+export interface ApiServicePageServicePage extends Struct.SingleTypeSchema {
+  collectionName: 'service_pages';
   info: {
-    displayName: 'Service';
-    pluralName: 'services';
-    singularName: 'service';
+    displayName: 'service-page';
+    pluralName: 'service-pages';
+    singularName: 'service-page';
   };
   options: {
     draftAndPublish: true;
@@ -645,9 +700,64 @@ export interface ApiServiceService extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
+      'api::service-page.service-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServiceService extends Struct.CollectionTypeSchema {
+  collectionName: 'services';
+  info: {
+    displayName: 'service';
+    pluralName: 'services';
+    singularName: 'service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Schema.Attribute.Component<'shared.img', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
       'api::service.service'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -657,17 +767,12 @@ export interface ApiServiceService extends Struct.SingleTypeSchema {
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
-    displayName: 'Testimonial';
+    displayName: 'testimonial';
     pluralName: 'testimonials';
     singularName: 'testimonial';
   };
   options: {
     draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: false;
-    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -679,25 +784,10 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
       'api::testimonial.testimonial'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    location: Schema.Attribute.String;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Integer &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
       Schema.Attribute.SetMinMax<
         {
           max: 5;
@@ -705,12 +795,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
         },
         number
       >;
-    text: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    text: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1228,11 +1313,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::about.about': ApiAboutAbout;
-      'api::contact.contact': ApiContactContact;
-      'api::gallery.gallery': ApiGalleryGallery;
-      'api::home.home': ApiHomeHome;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::gallery-page.gallery-page': ApiGalleryPageGalleryPage;
+      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::room-page.room-page': ApiRoomPageRoomPage;
       'api::room.room': ApiRoomRoom;
+      'api::service-page.service-page': ApiServicePageServicePage;
       'api::service.service': ApiServiceService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

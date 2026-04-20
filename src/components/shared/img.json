@@ -5,18 +5,15 @@
   },
   "options": {},
   "attributes": {
+    "alt": {
+      "type": "text"
+    },
     "src": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
-    },
-    "alt": {
-      "type": "string"
     }
   },
   "config": {}
