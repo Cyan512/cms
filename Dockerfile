@@ -1,17 +1,19 @@
 FROM node:20-alpine
 
-WORKDIR /srv/app
+WORKDIR /app
 
-RUN apk add --no-cache python3 make g++
+RUN apk add --no-cache curl
 
-COPY ./app/package*.json ./
+COPY package*.json ./
 
-RUN npm install
+RUN npm ci --production
 
-COPY ./app ./
+COPY . .
 
 RUN npm run build
 
 EXPOSE 1337
 
-CMD ["npm", "run", "start"]
+ENV NODE_ENV=production
+
+CMD ["npm", "start"]

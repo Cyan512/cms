@@ -1,0 +1,9 @@
+.ash
+.git
+.node_modules
+dist
+.env.local
+.env.production
+*.log
+README.md
+.DS_Store
