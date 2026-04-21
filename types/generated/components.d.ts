@@ -7,23 +7,19 @@ export interface AboutAboutHistory extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    image: Schema.Attribute.Component<'shared.img', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
-    year: Schema.Attribute.String;
   };
 }
 
-export interface AboutAboutLocation extends Struct.ComponentSchema {
-  collectionName: 'components_about_about_locations';
+export interface AboutAboutMetrics extends Struct.ComponentSchema {
+  collectionName: 'components_about_about_metrics';
   info: {
-    displayName: 'about-location';
+    displayName: 'about-metrics';
   };
   attributes: {
-    address: Schema.Attribute.Text;
-    description: Schema.Attribute.Text;
-    googleMapsUrl: Schema.Attribute.Text;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    metrics: Schema.Attribute.Component<'shared.section-metrics', true>;
   };
 }
 
@@ -33,9 +29,6 @@ export interface AboutAboutPhilosophy extends Struct.ComponentSchema {
     displayName: 'about-philosophy';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
     values: Schema.Attribute.Component<'shared.value', true>;
   };
 }
@@ -253,6 +246,18 @@ export interface SharedSectionHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSectionMetrics extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_metrics';
+  info: {
+    displayName: 'metric';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    more: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    number: Schema.Attribute.Decimal;
+  };
+}
+
 export interface SharedValue extends Struct.ComponentSchema {
   collectionName: 'components_shared_values';
   info: {
@@ -268,7 +273,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'about.about-history': AboutAboutHistory;
-      'about.about-location': AboutAboutLocation;
+      'about.about-metrics': AboutAboutMetrics;
       'about.about-philosophy': AboutAboutPhilosophy;
       'contact.contact-form': ContactContactForm;
       'contact.contact-info': ContactContactInfo;
@@ -286,6 +291,7 @@ declare module '@strapi/strapi' {
       'shared.link': SharedLink;
       'shared.section-cta': SharedSectionCta;
       'shared.section-hero': SharedSectionHero;
+      'shared.section-metrics': SharedSectionMetrics;
       'shared.value': SharedValue;
     }
   }

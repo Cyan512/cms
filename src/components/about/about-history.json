@@ -14,8 +14,10 @@
     "description": {
       "type": "text"
     },
-    "year": {
-      "type": "string"
+    "image": {
+      "type": "component",
+      "component": "shared.img",
+      "repeatable": false
     }
   },
   "config": {}

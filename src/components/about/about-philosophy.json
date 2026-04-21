@@ -5,15 +5,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "subtitle": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
     "values": {
       "type": "component",
       "component": "shared.value",

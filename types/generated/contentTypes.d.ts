@@ -451,8 +451,8 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
         'shared.section-hero',
         'about.about-history',
         'about.about-philosophy',
-        'about.about-location',
         'shared.section-cta',
+        'about.about-metrics',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

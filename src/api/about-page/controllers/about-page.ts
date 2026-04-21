@@ -20,7 +20,15 @@ export default factories.createCoreController('api::about-page.about-page', ({ s
                                 }
                             }
                         },
-                        'about.about-history': true,
+                        'about.about-history': {
+                            populate: {
+                                image: {
+                                    populate: {
+                                        src: true
+                                    }
+                                }
+                            }
+                        },
                         'about.about-philosophy': {
                             populate: {
                                 values: {
@@ -28,7 +36,13 @@ export default factories.createCoreController('api::about-page.about-page', ({ s
                                 }
                             }
                         },
-                        'about.about-location': true,
+                        'about.about-metrics': {
+                            populate: {
+                                metrics: {
+                                    populate: true
+                                }
+                            }
+                        },
                         'shared.section-cta': {
                             populate: {
                                 link: true
