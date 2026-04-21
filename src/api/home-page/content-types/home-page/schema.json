@@ -23,8 +23,8 @@
         }
       },
       "components": [
-        "home.home-hero",
-        "home.home-about",
+        "shared.section-hero",
+        "shared.section-about",
         "home.home-rooms",
         "home.home-services",
         "home.home-testimonials",

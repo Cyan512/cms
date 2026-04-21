@@ -17,9 +17,11 @@ export default factories.createCoreController('api::service-page.service-page', 
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                links: true
                             }
-                        }
+                        },
+                        'service.service-list':true
                     }
                 }
             }

@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_home_home_abouts",
+  "collectionName": "components_shared_section_abouts",
   "info": {
-    "displayName": "home-about"
+    "displayName": "section-about"
   },
   "options": {},
   "attributes": {

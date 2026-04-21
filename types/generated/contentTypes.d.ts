@@ -449,10 +449,10 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     content: Schema.Attribute.DynamicZone<
       [
         'shared.section-hero',
-        'about.about-history',
+        'shared.section-about',
+        'about.about-metrics',
         'about.about-philosophy',
         'shared.section-cta',
-        'about.about-metrics',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -492,12 +492,7 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      [
-        'shared.section-hero',
-        'contact.contact-info',
-        'contact.contact-map',
-        'contact.contact-form',
-      ]
+      ['shared.section-hero', 'shared.section-contact', 'shared.section-map']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -536,7 +531,7 @@ export interface ApiGalleryPageGalleryPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['shared.section-hero', 'gallery.gallery-grid']
+      ['shared.section-hero', 'gallery.gallery-list']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -576,8 +571,8 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'home.home-hero',
-        'home.home-about',
+        'shared.section-hero',
+        'shared.section-about',
         'home.home-rooms',
         'home.home-services',
         'home.home-testimonials',
@@ -620,7 +615,9 @@ export interface ApiRoomPageRoomPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+    content: Schema.Attribute.DynamicZone<
+      ['shared.section-hero', 'room.room-list']
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -666,6 +663,12 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    images: Schema.Attribute.Component<'shared.img', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::room.room'>;
     name: Schema.Attribute.String &
@@ -705,7 +708,9 @@ export interface ApiServicePageServicePage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<['shared.section-hero']> &
+    content: Schema.Attribute.DynamicZone<
+      ['shared.section-hero', 'service.service-list']
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

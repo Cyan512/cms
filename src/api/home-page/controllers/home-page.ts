@@ -11,17 +11,17 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
             populate: {
                 content: {
                     on: {
-                        'home.home-hero': {
+                        'shared.section-hero': {
                             populate: {
                                 image: {
-                                    populate:   {
+                                    populate: {
                                         src: true
                                     }
                                 },
                                 links: true
                             }
                         },
-                        'home.home-about': {
+                        'shared.section-about': {
                             populate: {
                                 image: {
                                     populate: {
@@ -33,7 +33,16 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
                         },
                         'home.home-rooms': {
                             populate: {
-                                link: true
+                                link: true,
+                                rooms: {
+                                    populate: {
+                                        images: {
+                                            populate: {
+                                                src: true
+                                            }
+                                        }
+                                    },
+                                }
                             }
                         },
                         'home.home-services': {

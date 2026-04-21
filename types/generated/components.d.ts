@@ -1,18 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface AboutAboutHistory extends Struct.ComponentSchema {
-  collectionName: 'components_about_about_histories';
-  info: {
-    displayName: 'about-history';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Component<'shared.img', false>;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface AboutAboutMetrics extends Struct.ComponentSchema {
   collectionName: 'components_about_about_metrics';
   info: {
@@ -33,97 +20,13 @@ export interface AboutAboutPhilosophy extends Struct.ComponentSchema {
   };
 }
 
-export interface ContactContactForm extends Struct.ComponentSchema {
-  collectionName: 'components_contact_contact_forms';
+export interface GalleryGalleryList extends Struct.ComponentSchema {
+  collectionName: 'components_gallery_gallery_lists';
   info: {
-    displayName: 'contact-form';
-  };
-  attributes: {
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ContactContactInfo extends Struct.ComponentSchema {
-  collectionName: 'components_contact_contact_infos';
-  info: {
-    displayName: 'contact-info';
-  };
-  attributes: {
-    address: Schema.Attribute.String;
-    email: Schema.Attribute.String;
-    openingHours: Schema.Attribute.String;
-    phone: Schema.Attribute.String;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ContactContactMap extends Struct.ComponentSchema {
-  collectionName: 'components_contact_contact_maps';
-  info: {
-    displayName: 'contact-map';
-  };
-  attributes: {
-    embedUrl: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface GalleryGalleryFilters extends Struct.ComponentSchema {
-  collectionName: 'components_gallery_gallery_filters';
-  info: {
-    displayName: 'gallery-filters';
-  };
-  attributes: {
-    categories: Schema.Attribute.Component<'shared.gallery-category', true>;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface GalleryGalleryGrid extends Struct.ComponentSchema {
-  collectionName: 'components_gallery_gallery_grids';
-  info: {
-    displayName: 'gallery-grid';
+    displayName: 'gallery-list';
   };
   attributes: {
     images: Schema.Attribute.Component<'shared.img', true>;
-  };
-}
-
-export interface HomeHomeAbout extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_abouts';
-  info: {
-    displayName: 'home-about';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Component<'shared.img', false>;
-    link: Schema.Attribute.Component<'shared.link', false>;
-    subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.Text;
-  };
-}
-
-export interface HomeHomeHero extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_heroes';
-  info: {
-    displayName: 'home-hero';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Component<'shared.img', false>;
-    links: Schema.Attribute.Component<'shared.link', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 2;
-          min: 0;
-        },
-        number
-      >;
-    subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.Text;
   };
 }
 
@@ -134,6 +37,7 @@ export interface HomeHomeRooms extends Struct.ComponentSchema {
   };
   attributes: {
     link: Schema.Attribute.Component<'shared.link', false>;
+    rooms: Schema.Attribute.Relation<'oneToMany', 'api::room.room'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.Text;
   };
@@ -166,6 +70,22 @@ export interface HomeHomeTestimonials extends Struct.ComponentSchema {
     >;
     title: Schema.Attribute.Text;
   };
+}
+
+export interface RoomRoomList extends Struct.ComponentSchema {
+  collectionName: 'components_room_room_lists';
+  info: {
+    displayName: 'room-list';
+  };
+  attributes: {};
+}
+
+export interface ServiceServiceList extends Struct.ComponentSchema {
+  collectionName: 'components_service_service_lists';
+  info: {
+    displayName: 'service-list';
+  };
+  attributes: {};
 }
 
 export interface SharedGalleryCategory extends Struct.ComponentSchema {
@@ -207,11 +127,33 @@ export interface SharedLink extends Struct.ComponentSchema {
   };
   attributes: {
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.Text;
     type: Schema.Attribute.Enumeration<['primary', 'secondary', 'link']> &
       Schema.Attribute.DefaultTo<'primary'>;
     url: Schema.Attribute.Text;
   };
+}
+
+export interface SharedSectionAbout extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_abouts';
+  info: {
+    displayName: 'section-about';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Component<'shared.img', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedSectionContact extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_contacts';
+  info: {
+    displayName: 'section-contact';
+  };
+  attributes: {};
 }
 
 export interface SharedSectionCta extends Struct.ComponentSchema {
@@ -240,10 +182,27 @@ export interface SharedSectionHero extends Struct.ComponentSchema {
     displayName: 'section-hero';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Component<'shared.img', false>;
+    links: Schema.Attribute.Component<'shared.link', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+          min: 0;
+        },
+        number
+      >;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.Text;
   };
+}
+
+export interface SharedSectionMap extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_maps';
+  info: {
+    displayName: 'section-map';
+  };
+  attributes: {};
 }
 
 export interface SharedSectionMetrics extends Struct.ComponentSchema {
@@ -252,7 +211,7 @@ export interface SharedSectionMetrics extends Struct.ComponentSchema {
     displayName: 'metric';
   };
   attributes: {
-    label: Schema.Attribute.String;
+    label: Schema.Attribute.Text;
     more: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     number: Schema.Attribute.Decimal;
   };
@@ -265,32 +224,30 @@ export interface SharedValue extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'about.about-history': AboutAboutHistory;
       'about.about-metrics': AboutAboutMetrics;
       'about.about-philosophy': AboutAboutPhilosophy;
-      'contact.contact-form': ContactContactForm;
-      'contact.contact-info': ContactContactInfo;
-      'contact.contact-map': ContactContactMap;
-      'gallery.gallery-filters': GalleryGalleryFilters;
-      'gallery.gallery-grid': GalleryGalleryGrid;
-      'home.home-about': HomeHomeAbout;
-      'home.home-hero': HomeHomeHero;
+      'gallery.gallery-list': GalleryGalleryList;
       'home.home-rooms': HomeHomeRooms;
       'home.home-services': HomeHomeServices;
       'home.home-testimonials': HomeHomeTestimonials;
+      'room.room-list': RoomRoomList;
+      'service.service-list': ServiceServiceList;
       'shared.gallery-category': SharedGalleryCategory;
       'shared.gallery-image': SharedGalleryImage;
       'shared.img': SharedImg;
       'shared.link': SharedLink;
+      'shared.section-about': SharedSectionAbout;
+      'shared.section-contact': SharedSectionContact;
       'shared.section-cta': SharedSectionCta;
       'shared.section-hero': SharedSectionHero;
+      'shared.section-map': SharedSectionMap;
       'shared.section-metrics': SharedSectionMetrics;
       'shared.value': SharedValue;
     }

@@ -17,12 +17,12 @@ export default factories.createCoreController('api::contact-page.contact-page', 
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                links: true
                             }
                         },
-                        'contact.contact-info': true,
-                        'contact.contact-form': true,
-                        'contact.contact-map': true,
+                        'shared.section-contact': true,
+                        'shared.section-map': true,
                     }
                 }
             }

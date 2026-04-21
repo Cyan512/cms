@@ -23,7 +23,8 @@
         }
       },
       "components": [
-        "shared.section-hero"
+        "shared.section-hero",
+        "room.room-list"
       ]
     }
   }

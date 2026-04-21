@@ -24,7 +24,7 @@
       },
       "components": [
         "shared.section-hero",
-        "gallery.gallery-grid"
+        "gallery.gallery-list"
       ]
     }
   }

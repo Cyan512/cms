@@ -41,6 +41,16 @@
           "localized": true
         }
       }
+    },
+    "images": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.img",
+      "repeatable": true
     }
   }
 }

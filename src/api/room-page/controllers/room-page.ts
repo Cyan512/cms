@@ -17,9 +17,11 @@ export default factories.createCoreController('api::room-page.room-page', ({ str
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                links: true
                             }
-                        }
+                        },
+                        'room.room-list':true
                     }
                 }
             }

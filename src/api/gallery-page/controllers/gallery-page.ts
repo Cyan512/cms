@@ -17,10 +17,11 @@ export default factories.createCoreController('api::gallery-page.gallery-page', 
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                links: true
                             }
                         },
-                        'gallery.gallery-grid': {
+                        'gallery.gallery-list': {
                             populate: {
                                 images: {
                                     populate: {

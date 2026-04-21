@@ -24,10 +24,10 @@
       },
       "components": [
         "shared.section-hero",
-        "about.about-history",
+        "shared.section-about",
+        "about.about-metrics",
         "about.about-philosophy",
-        "shared.section-cta",
-        "about.about-metrics"
+        "shared.section-cta"
       ]
     }
   }

@@ -6,7 +6,7 @@
   "options": {},
   "attributes": {
     "label": {
-      "type": "string"
+      "type": "text"
     },
     "number": {
       "type": "decimal"

@@ -23,7 +23,8 @@
         }
       },
       "components": [
-        "shared.section-hero"
+        "shared.section-hero",
+        "service.service-list"
       ]
     }
   }

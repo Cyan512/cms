@@ -17,28 +17,30 @@ export default factories.createCoreController('api::about-page.about-page', ({ s
                                     populate: {
                                         src: true
                                     }
-                                }
+                                },
+                                links: true
                             }
                         },
-                        'about.about-history': {
+                        'shared.section-about': {
                             populate: {
                                 image: {
                                     populate: {
                                         src: true
                                     }
+                                },
+                                link: true
+                            }
+                        },
+                        'about.about-metrics': {
+                            populate: {
+                                metrics: {
+                                    populate: true
                                 }
                             }
                         },
                         'about.about-philosophy': {
                             populate: {
                                 values: {
-                                    populate: true
-                                }
-                            }
-                        },
-                        'about.about-metrics': {
-                            populate: {
-                                metrics: {
                                     populate: true
                                 }
                             }
