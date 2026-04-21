@@ -5,12 +5,9 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "images": {
       "type": "component",
-      "component": "shared.gallery-image",
+      "component": "shared.img",
       "repeatable": true
     }
   },

@@ -95,8 +95,7 @@ export interface GalleryGalleryGrid extends Struct.ComponentSchema {
     displayName: 'gallery-grid';
   };
   attributes: {
-    images: Schema.Attribute.Component<'shared.gallery-image', true>;
-    title: Schema.Attribute.String;
+    images: Schema.Attribute.Component<'shared.img', true>;
   };
 }
 
@@ -193,7 +192,6 @@ export interface SharedGalleryImage extends Struct.ComponentSchema {
     displayName: 'gallery-image';
   };
   attributes: {
-    category: Schema.Attribute.String;
     image: Schema.Attribute.Component<'shared.img', false>;
   };
 }

@@ -9,9 +9,6 @@
       "type": "component",
       "component": "shared.img",
       "repeatable": false
-    },
-    "category": {
-      "type": "string"
     }
   },
   "config": {}

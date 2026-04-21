@@ -24,8 +24,6 @@
       },
       "components": [
         "shared.section-hero",
-        "shared.section-cta",
-        "gallery.gallery-filters",
         "gallery.gallery-grid"
       ]
     }

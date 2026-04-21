@@ -536,12 +536,7 @@ export interface ApiGalleryPageGalleryPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      [
-        'shared.section-hero',
-        'shared.section-cta',
-        'gallery.gallery-filters',
-        'gallery.gallery-grid',
-      ]
+      ['shared.section-hero', 'gallery.gallery-grid']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
