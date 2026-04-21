@@ -1,10 +1,44 @@
-version: '3.8'
-
 services:
   strapi:
-    build: .
+    image: strapi/strapi
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - HOST=${HOST}
+      - APP_KEYS=${APP_KEYS}
+      - API_TOKEN_SALT=${API_TOKEN_SALT}
+      - ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET}
+      - TRANSFER_TOKEN_SALT=${TRANSFER_TOKEN_SALT}
+      - JWT_SECRET=${JWT_SECRET}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - DATABASE_CLIENT=${DATABASE_CLIENT}
+      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_SSL=${DATABASE_SSL}
+      - DATABASE_SSL_REJECT_UNAUTHORIZED=${DATABASE_SSL_REJECT_UNAUTHORIZED}
+    volumes:
+      - ./app:/srv/app
     ports:
       - "1337:1337"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres-strapi
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5432:5432"
     volumes:
-      - ./public/uploads:/app/public/uploads
-    restart: unless-stopped
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  postgres-data:
