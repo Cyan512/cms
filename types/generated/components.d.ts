@@ -26,7 +26,10 @@ export interface GalleryGalleryList extends Struct.ComponentSchema {
     displayName: 'gallery-list';
   };
   attributes: {
-    images: Schema.Attribute.Component<'shared.img', true>;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
   };
 }
 

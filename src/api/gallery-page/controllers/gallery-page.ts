@@ -24,9 +24,7 @@ export default factories.createCoreController('api::gallery-page.gallery-page', 
                         'gallery.gallery-list': {
                             populate: {
                                 images: {
-                                    populate: {
-                                        src: true
-                                    }
+                                    populate:true
                                 }
                             }
                         }
