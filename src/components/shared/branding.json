@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_brandings",
+  "info": {
+    "displayName": "branding"
+  },
+  "options": {},
+  "attributes": {
+    "siteName": {
+      "type": "string"
+    },
+    "footerText": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "component",
+      "component": "shared.img",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

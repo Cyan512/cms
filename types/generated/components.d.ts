@@ -88,6 +88,30 @@ export interface ServiceServiceList extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface SharedBranding extends Struct.ComponentSchema {
+  collectionName: 'components_shared_brandings';
+  info: {
+    displayName: 'branding';
+  };
+  attributes: {
+    footerText: Schema.Attribute.Text;
+    logo: Schema.Attribute.Component<'shared.img', false>;
+    siteName: Schema.Attribute.String;
+  };
+}
+
+export interface SharedContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_infos';
+  info: {
+    displayName: 'contact-info';
+  };
+  attributes: {
+    email: Schema.Attribute.Email;
+    phone: Schema.Attribute.String;
+    whatsapp: Schema.Attribute.String;
+  };
+}
+
 export interface SharedGalleryCategory extends Struct.ComponentSchema {
   collectionName: 'components_shared_gallery_categories';
   info: {
@@ -131,6 +155,19 @@ export interface SharedLink extends Struct.ComponentSchema {
     type: Schema.Attribute.Enumeration<['primary', 'secondary', 'link']> &
       Schema.Attribute.DefaultTo<'primary'>;
     url: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedLocationInfo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_location_infos';
+  info: {
+    displayName: 'location-info';
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    googleMapsUrl: Schema.Attribute.String;
+    latitude: Schema.Attribute.Decimal;
+    longitude: Schema.Attribute.Decimal;
   };
 }
 
@@ -217,6 +254,18 @@ export interface SharedSectionMetrics extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSocialLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_social_links';
+  info: {
+    displayName: 'social-links';
+  };
+  attributes: {
+    facebook: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    tiktok: Schema.Attribute.String;
+  };
+}
+
 export interface SharedValue extends Struct.ComponentSchema {
   collectionName: 'components_shared_values';
   info: {
@@ -239,16 +288,20 @@ declare module '@strapi/strapi' {
       'home.home-testimonials': HomeHomeTestimonials;
       'room.room-list': RoomRoomList;
       'service.service-list': ServiceServiceList;
+      'shared.branding': SharedBranding;
+      'shared.contact-info': SharedContactInfo;
       'shared.gallery-category': SharedGalleryCategory;
       'shared.gallery-image': SharedGalleryImage;
       'shared.img': SharedImg;
       'shared.link': SharedLink;
+      'shared.location-info': SharedLocationInfo;
       'shared.section-about': SharedSectionAbout;
       'shared.section-contact': SharedSectionContact;
       'shared.section-cta': SharedSectionCta;
       'shared.section-hero': SharedSectionHero;
       'shared.section-map': SharedSectionMap;
       'shared.section-metrics': SharedSectionMetrics;
+      'shared.social-links': SharedSocialLinks;
       'shared.value': SharedValue;
     }
   }

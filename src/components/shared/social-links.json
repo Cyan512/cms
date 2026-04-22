@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_social_links",
+  "info": {
+    "displayName": "social-links"
+  },
+  "options": {},
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "tiktok": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

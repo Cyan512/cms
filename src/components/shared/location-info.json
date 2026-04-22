@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_location_infos",
+  "info": {
+    "displayName": "location-info"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "text"
+    },
+    "googleMapsUrl": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}
