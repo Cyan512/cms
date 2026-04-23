@@ -4,17 +4,6 @@
     "displayName": "img"
   },
   "options": {},
-  "attributes": {
-    "alt": {
-      "type": "text"
-    },
-    "src": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    }
-  },
+  "attributes": {},
   "config": {}
 }

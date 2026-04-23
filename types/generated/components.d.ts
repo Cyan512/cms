@@ -141,10 +141,7 @@ export interface SharedImg extends Struct.ComponentSchema {
   info: {
     displayName: 'img';
   };
-  attributes: {
-    alt: Schema.Attribute.Text;
-    src: Schema.Attribute.Media<'images'>;
-  };
+  attributes: {};
 }
 
 export interface SharedLink extends Struct.ComponentSchema {
