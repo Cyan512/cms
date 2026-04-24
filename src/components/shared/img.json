@@ -4,6 +4,23 @@
     "displayName": "img"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "src": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    }
+  },
   "config": {}
 }

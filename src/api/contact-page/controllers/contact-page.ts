@@ -11,18 +11,8 @@ export default factories.createCoreController('api::contact-page.contact-page', 
             populate: {
                 content: {
                     on: {
-                        'shared.section-hero': {
-                            populate: {
-                                image: {
-                                    populate: {
-                                        src: true
-                                    }
-                                },
-                                links: true
-                            }
-                        },
-                        'shared.section-contact': true,
-                        'shared.section-map': true,
+                        'shared.section-hero': true,
+                        'contact.contact-info': true,
                     }
                 }
             }

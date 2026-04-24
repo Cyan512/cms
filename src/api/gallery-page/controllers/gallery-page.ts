@@ -11,20 +11,13 @@ export default factories.createCoreController('api::gallery-page.gallery-page', 
             populate: {
                 content: {
                     on: {
-                        'shared.section-hero': {
-                            populate: {
-                                image: {
-                                    populate: {
-                                        src: true
-                                    }
-                                },
-                                links: true
-                            }
-                        },
+                        'shared.section-hero': true,
                         'gallery.gallery-list': {
                             populate: {
                                 images: {
-                                    populate:true
+                                    populate: {
+                                        src: true
+                                    }
                                 }
                             }
                         }

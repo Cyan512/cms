@@ -26,9 +26,7 @@
         "shared.section-hero",
         "shared.section-about",
         "home.home-rooms",
-        "home.home-services",
-        "home.home-testimonials",
-        "shared.section-cta"
+        "home.home-services"
       ]
     }
   }

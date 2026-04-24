@@ -4,29 +4,6 @@
     "displayName": "section-hero"
   },
   "options": {},
-  "attributes": {
-    "title": {
-      "type": "text",
-      "required": false
-    },
-    "subtitle": {
-      "type": "text"
-    },
-    "description": {
-      "type": "text"
-    },
-    "image": {
-      "type": "component",
-      "component": "shared.img",
-      "repeatable": false
-    },
-    "links": {
-      "type": "component",
-      "component": "shared.link",
-      "repeatable": true,
-      "min": 0,
-      "max": 2
-    }
-  },
+  "attributes": {},
   "config": {}
 }

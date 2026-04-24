@@ -11,16 +11,7 @@ export default factories.createCoreController('api::room-page.room-page', ({ str
             populate: {
                 content: {
                     on: {
-                        'shared.section-hero': {
-                            populate: {
-                                image: {
-                                    populate: {
-                                        src: true
-                                    }
-                                },
-                                links: true
-                            }
-                        },
+                        'shared.section-hero': true,
                         'room.room-list':true
                     }
                 }

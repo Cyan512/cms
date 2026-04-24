@@ -24,8 +24,7 @@
       },
       "components": [
         "shared.section-hero",
-        "shared.section-contact",
-        "shared.section-map"
+        "contact.contact-info"
       ]
     }
   }

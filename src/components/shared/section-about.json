@@ -4,26 +4,6 @@
     "displayName": "section-about"
   },
   "options": {},
-  "attributes": {
-    "title": {
-      "type": "text"
-    },
-    "subtitle": {
-      "type": "text"
-    },
-    "description": {
-      "type": "text"
-    },
-    "image": {
-      "type": "component",
-      "component": "shared.img",
-      "repeatable": false
-    },
-    "link": {
-      "type": "component",
-      "component": "shared.link",
-      "repeatable": false
-    }
-  },
+  "attributes": {},
   "config": {}
 }
