@@ -22,7 +22,7 @@ services:
 
     volumes:
       - ./app:/srv/app
-      - strapi-uploads:/srv/app/public/uploads 
+      - strapi-uploads:/app/public/uploads 
     ports:
       - "1337:1337"
     depends_on:
