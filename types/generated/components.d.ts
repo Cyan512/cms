@@ -46,6 +46,14 @@ export interface RoomRoomList extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface ServiceServiceList extends Struct.ComponentSchema {
+  collectionName: 'components_service_service_lists';
+  info: {
+    displayName: 'service-list';
+  };
+  attributes: {};
+}
+
 export interface SharedImg extends Struct.ComponentSchema {
   collectionName: 'components_shared_imgs';
   info: {
@@ -82,6 +90,7 @@ declare module '@strapi/strapi' {
       'home.home-rooms': HomeHomeRooms;
       'home.home-services': HomeHomeServices;
       'room.room-list': RoomRoomList;
+      'service.service-list': ServiceServiceList;
       'shared.img': SharedImg;
       'shared.section-about': SharedSectionAbout;
       'shared.section-hero': SharedSectionHero;
